@@ -11,7 +11,11 @@ $system_font = isset($system_font) ? htmlspecialchars($system_font) : 'Poppins';
 $favicon = !empty($system_logo) ? '../../public/' . htmlspecialchars($system_logo) : '';
 ?>
 <?php
-$base_path = '/project/abiel/';
+// Calculate a relative base path from the document root
+$doc_root = str_replace('\\', '/', $_SERVER['DOCUMENT_ROOT']);
+$base_dir = str_replace($doc_root, '', str_replace('\\', '/', __DIR__ . '/..'));
+$base_path = rtrim($base_dir, '/') . '/';
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -23,7 +23,7 @@ include_once __DIR__ . '/../../../include/header.php';
                 <textarea id="description" name="description" class="form-control" rows="3"><?php echo htmlspecialchars($category['description']); ?></textarea>
             </div>
             <button type="submit" class="btn btn-success"><i class="fas fa-save me-2"></i>Save Changes</button>
-            <a href="../management/product_categories.php" class="btn btn-secondary">Cancel</a>
+            <a href="../management/product_categories" class="btn btn-secondary">Cancel</a>
         </form>
         <?php else: ?>
             <div class="alert alert-danger">Category not found.</div>

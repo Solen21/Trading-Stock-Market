@@ -19,13 +19,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($stmt->execute()) {
                 $_SESSION['flash_message'] = "Category '{$category_name}' created successfully.";
                 $_SESSION['flash_message_type'] = 'success';
-                header("Location: ../../../frontend/admin/management/product_categories.php");
+                header("Location: ../../../frontend/admin/management/product_categories");
                 exit();
             }
         } catch (mysqli_sql_exception $e) {
             $_SESSION['flash_message'] = "Database error: A category with that name might already exist.";
             $_SESSION['flash_message_type'] = 'danger';
-            header("Location: ../../../frontend/admin/add/product_categories.php");
+            header("Location: ../../../frontend/admin/add/product_categories");
             exit();
         }
     }

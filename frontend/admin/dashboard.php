@@ -95,7 +95,17 @@ include_once __DIR__ . '/../../include/header.php';
                 <i class="fas fa-tags fa-3x mb-3 text-primary"></i>
                 <h5 class="card-title">Product Categories</h5>
                 <p class="card-text">Manage product categories like Ceramic, Chemical, etc.</p>
-                <a href="<?php echo $base_path; ?>frontend/admin/management/product_categories.php" class="btn btn-outline-primary">Go to Categories</a>
+                <a href="../management/product_categories" class="btn btn-outline-primary">Go to Categories</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <i class="fas fa-warehouse fa-3x mb-3 text-primary"></i>
+                <h5 class="card-title">Stock Management</h5>
+                <p class="card-text">Manage product quantities across all stores.</p>
+                <a href="../management/stock" class="btn btn-outline-primary">Go to Stock</a>
             </div>
         </div>
     </div>

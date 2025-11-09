@@ -10,6 +10,7 @@
     $productCategoryPages = ['product_categories.php', 'add_product_categories.php', 'edit_product_categories.php'];
     $unitPages = ['units.php', 'add_units.php', 'edit_units.php'];
     $productPages = ['products.php', 'add_products.php', 'edit_products.php'];
+    $stockPages = ['stock.php', 'add_stock.php', 'edit_stock.php'];
     ?>
     <!-- Sidebar -->
     <nav id="sidebar">
@@ -28,9 +29,10 @@
             <li class="<?php echo in_array($currentPage, $storeManagementPages) ? 'active' : ''; ?>"><a href="<?php echo $base_path; ?>frontend/admin/management/store"><i class="fas fa-store-alt me-2"></i>Store Management</a></li>
             <li class="<?php echo in_array($currentPage, $companyManagementPages) ? 'active' : ''; ?>"><a href="<?php echo $base_path; ?>frontend/admin/management/companies"><i class="fas fa-building me-2"></i>Company Management</a></li>
             <li class="<?php echo in_array($currentPage, $productSupplierPages) ? 'active' : ''; ?>"><a href="<?php echo $base_path; ?>frontend/admin/management/product_suppliers"><i class="fas fa-truck-field me-2"></i>Product Suppliers</a></li>
-            <li class="<?php echo in_array($currentPage, $productCategoryPages) ? 'active' : ''; ?>"><a href="<?php echo $base_path; ?>frontend/admin/management/product_categories.php"><i class="fas fa-tags me-2"></i>Product Categories</a></li>
+            <li class="<?php echo in_array($currentPage, $productCategoryPages) ? 'active' : ''; ?>"><a href="<?php echo $base_path; ?>frontend/admin/management/product_categories"><i class="fas fa-tags me-2"></i>Product Categories</a></li>
             <li class="<?php echo in_array($currentPage, $unitPages) ? 'active' : ''; ?>"><a href="<?php echo $base_path; ?>frontend/admin/management/units"><i class="fas fa-balance-scale me-2"></i>Units</a></li>
             <li class="<?php echo in_array($currentPage, $productPages) ? 'active' : ''; ?>"><a href="<?php echo $base_path; ?>frontend/admin/management/products"><i class="fas fa-box-open me-2"></i>Product Management</a></li>
+            <li class="<?php echo in_array($currentPage, $stockPages) ? 'active' : ''; ?>"><a href="<?php echo $base_path; ?>frontend/admin/management/stock"><i class="fas fa-warehouse me-2"></i>Stock Management</a></li>
             <li class="<?php echo ($currentPage == 'product_sizes.php') ? 'active' : ''; ?>"><a class="dropdown-item" href="<?php echo $base_path; ?>frontend/admin/management/product_sizes">Product Sizes</a></li>
             <li class="<?php echo ($currentPage == 'config.php') ? 'active' : ''; ?>"><a href="<?php echo $base_path; ?>frontend/admin/setting/config"><i class="fas fa-cogs me-2"></i>Settings</a></li>
         </ul>

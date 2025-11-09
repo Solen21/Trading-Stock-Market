@@ -24,5 +24,5 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     $stmt->close();
 }
 
-header("Location: ../../../frontend/admin/management/product_categories.php");
+header("Location: ../../../frontend/admin/management/product_categories");
 exit();

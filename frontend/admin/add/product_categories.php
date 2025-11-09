@@ -26,7 +26,7 @@ include_once __DIR__ . '/../../../include/header.php';
                 <textarea id="description" name="description" class="form-control" rows="3"></textarea>
             </div>
             <button type="submit" class="btn btn-success"><i class="fas fa-save me-2"></i>Save Category</button>
-            <a href="../management/product_categories.php" class="btn btn-secondary">Cancel</a>
+            <a href="../management/product_categories" class="btn btn-secondary">Cancel</a>
         </form>
     </div>
 </div>
