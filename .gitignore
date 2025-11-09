@@ -1,0 +1,5 @@
+# Database configuration file - Contains sensitive credentials
+/config/database.php
+
+# Other common ignores
+/vendor/

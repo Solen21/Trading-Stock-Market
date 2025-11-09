@@ -1,0 +1,196 @@
+body {
+    font-family: var(--system-font);
+    background: #fafafa;
+    overflow-x: hidden;
+}
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    background: var(--sidebar-color);
+    color: #fff;
+    transition: all 0.3s;
+    min-height: 100vh;
+    z-index: 1000;
+}
+
+.sidebar-header {
+    padding: 20px;
+    background: #2c3136;
+}
+
+.sidebar-header .sidebar-logo {
+    height: 40px;
+    width: auto;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #47748b;
+}
+
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+    color: #adb5bd;
+    text-decoration: none;
+}
+
+#sidebar ul li a:hover {
+    color: #fff;
+    background: #495057;
+}
+
+#sidebar ul li.active > a, a[aria-expanded="true"] {
+    color: #fff;
+    background: var(--primary-color);
+}
+
+#content {
+    width: 100%;
+    min-height: 100vh;
+    transition: all 0.3s;
+    background-color: transparent; /* Allow canvas to be visible */
+}
+
+.navbar {
+    background-color: var(--navbar-color) !important;
+}
+
+#motion-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1; /* Place it behind everything */
+}
+
+/* Animation for cards */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card.fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Dark overlay for when sidebar is active on mobile */
+.overlay {
+    display: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+}
+.overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Sidebar active state for mobile */
+#sidebar.active {
+    margin-left: 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+    #content {
+        width: 100%;
+    }
+    .wrapper.toggled #content {
+        position: relative;
+        margin-right: -250px;
+    }
+}
+
+/* --- Dark Mode Styles --- */
+.dark-mode body {
+    background: #212529;
+}
+
+.dark-mode #content {
+    background-color: #212529;
+}
+
+.dark-mode #motion-canvas {
+    /* The opacity is now handled by the particle colors directly */
+}
+
+.dark-mode .card {
+    background-color: #343a40;
+    color: #dee2e6;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .card-header {
+    background-color: #2c3136;
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .navbar {
+    background-color: #343a40 !important;
+    color: #dee2e6;
+}
+
+.dark-mode .navbar .navbar-brand {
+    color: #dee2e6;
+}
+
+.dark-mode .table {
+    color: #dee2e6;
+}
+
+.dark-mode .table-striped > tbody > tr:nth-of-type(odd) > * {
+    --bs-table-accent-bg: rgba(255, 255, 255, 0.05);
+    color: #dee2e6;
+}
+
+.dark-mode .table-hover > tbody > tr:hover > * {
+    --bs-table-accent-bg: rgba(255, 255, 255, 0.1);
+    color: #dee2e6;
+}
+
+.dark-mode .form-control, .dark-mode .form-select {
+    background-color: #495057;
+    color: #fff;
+    border-color: #6c757d;
+}
+
+.dark-mode .form-control::placeholder {
+    color: #adb5bd;
+}
+
+.dark-mode .input-group-text {
+    background-color: #343a40;
+    border-color: #6c757d;
+    color: #dee2e6;
+}
