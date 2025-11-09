@@ -10,18 +10,14 @@ if (!isset($_SESSION['user_id'])) {
 require_once __DIR__ . '/../../../config/db_connect.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $name = trim($_POST['name']);
-    $contact_person = trim($_POST['contact_person']) ?: null;
-    $country = trim($_POST['country']) ?: null;
-    $email = trim($_POST['email']) ?: null;
-    $phone = trim($_POST['phone']) ?: null;
-    $address = trim($_POST['address']) ?: null;
-    $info = trim($_POST['info']) ?: null;
+    $name = $_POST['name'];
+    $code = $_POST['code'];
+    $contact_info = $_POST['contact_info'];
 
-    if (!empty($name)) {
-        $stmt = $mysqli->prepare("INSERT INTO companies (name, contact_person, country, email, phone, address, info) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    if (!empty($name) && !empty($code)) {
+        $stmt = $mysqli->prepare("INSERT INTO companies (name, code, contact_info) VALUES (?, ?, ?)");
         try {
-            $stmt->bind_param("sssssss", $name, $contact_person, $country, $email, $phone, $address, $info);
+            $stmt->bind_param("sss", $name, $code, $contact_info);
             if ($stmt->execute()) {
                 $_SESSION['flash_message'] = "Company '{$name}' created successfully.";
                 $_SESSION['flash_message_type'] = 'success';
@@ -29,16 +25,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 exit();
             }
         } catch (mysqli_sql_exception $e) {
-            // Since there's no unique constraint besides ID, a duplicate error is unlikely unless you add one.
-            $_SESSION['flash_message'] = "Database error: " . $e->getMessage();
-            $_SESSION['flash_message_type'] = 'danger';
-            header("Location: ../../../frontend/admin/add/companies"); // Redirect back to the add page
+            if ($e->getCode() == 1062) { // Duplicate entry
+                $_SESSION['flash_message'] = "A company with the code '{$code}' already exists.";
+                $_SESSION['flash_message_type'] = 'danger';
+            } else {
+                $_SESSION['flash_message'] = "Database error: " . $e->getMessage();
+                $_SESSION['flash_message_type'] = 'danger';
+            }
+            header("Location: company"); // Redirect back to the add page
             exit();
         }
     } else {
-        $_SESSION['flash_message'] = "Company Name is a required field.";
+        $_SESSION['flash_message'] = "Company Name and Code are required.";
         $_SESSION['flash_message_type'] = 'danger';
-        header("Location: ../../../frontend/admin/add/companies");
+        header("Location: companies");
         exit();
     }
 }
@@ -46,3 +46,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 include_once __DIR__ . '/../../../helpers/system_settings.php';
 $page_title = 'Add New Company';
 ?>
+

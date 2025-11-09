@@ -105,13 +105,28 @@ INSERT IGNORE INTO units (unit_name, category, base_value, description) VALUES
 ('cm', 'length', 0.0100, 'Centimeter'),
 ('pack', 'custom', 1.0000, 'Custom packaging or fabrication unit');
 
+-- Product Categories
+CREATE TABLE IF NOT EXISTS product_categories (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    category_name VARCHAR(100) NOT NULL UNIQUE,
+    description TEXT,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Sample categories
+INSERT IGNORE INTO product_categories (category_name, description) VALUES
+('Ceramic', 'Tiles, sanitary ware, clay, etc.'),
+('Chemical', 'Glue, paint, cleaner, polish, etc.'),
+('Tool', 'Cutters, brushes, equipment, etc.'),
+('Fabrication', 'Custom builds or crafted items'),
+('General', 'Other general products');
+
 -- Products
 CREATE TABLE IF NOT EXISTS products (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     category_id INT,
     supplier_id INT,
-    company_product_code VARCHAR(100),
     purchase_price DECIMAL(12,2) NOT NULL,
     transport_fee DECIMAL(12,2) DEFAULT 0,
     loading_fee DECIMAL(12,2) DEFAULT 0,

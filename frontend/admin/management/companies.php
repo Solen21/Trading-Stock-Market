@@ -25,10 +25,8 @@ include_once __DIR__ . '/../../../include/header.php';
                 <thead class="table-dark">
                     <tr>
                         <th>Company Name</th>
-                        <th>Contact Person</th>
-                        <th>Country</th>
-                        <th>Email</th>
-                        <th>Phone</th>
+                        <th>Code</th>
+                        <th>Contact Info</th>
                         <th>Created At</th>
                         <th class="text-end">Actions</th>
                     </tr>
@@ -37,10 +35,8 @@ include_once __DIR__ . '/../../../include/header.php';
                     <?php foreach ($companies as $company): ?>
                     <tr>
                         <td><strong><?php echo htmlspecialchars($company['name']); ?></strong></td>
-                        <td><?php echo htmlspecialchars($company['contact_person'] ?? 'N/A'); ?></td>
-                        <td><?php echo htmlspecialchars($company['country'] ?? 'N/A'); ?></td>
-                        <td><?php echo htmlspecialchars($company['email'] ?? 'N/A'); ?></td>
-                        <td><?php echo htmlspecialchars($company['phone'] ?? 'N/A'); ?></td>
+                        <td><?php echo htmlspecialchars($company['code']); ?></td>
+                        <td><?php echo htmlspecialchars($company['contact_info']); ?></td>
                         <td><?php echo date("F j, Y, g:i a", strtotime($company['created_at'])); ?></td>
                         <td class="text-end">
                             <a href="../edit/companies?id=<?php echo $company['id']; ?>" class="btn btn-sm btn-info" title="Edit Company"><i class="fas fa-pencil-alt"></i></a>
@@ -55,3 +51,4 @@ include_once __DIR__ . '/../../../include/header.php';
 </div>
 
 <?php include_once __DIR__ . '/../../../include/footer.php'; ?>
+

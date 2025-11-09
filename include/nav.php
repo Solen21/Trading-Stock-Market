@@ -29,6 +29,7 @@
             <li class="<?php echo in_array($currentPage, $productSupplierPages) ? 'active' : ''; ?>"><a href="<?php echo $base_path; ?>frontend/admin/management/product_suppliers"><i class="fas fa-truck-field me-2"></i>Product Suppliers</a></li>
             <li class="<?php echo in_array($currentPage, $unitPages) ? 'active' : ''; ?>"><a href="<?php echo $base_path; ?>frontend/admin/management/units"><i class="fas fa-balance-scale me-2"></i>Units</a></li>
             <li class="<?php echo in_array($currentPage, $productPages) ? 'active' : ''; ?>"><a href="<?php echo $base_path; ?>frontend/admin/management/products"><i class="fas fa-box-open me-2"></i>Product Management</a></li>
+            <li calss="<?php echo ($currentPage == 'product_sizes.php') ? 'active' : ''; ?>"><a class="dropdown-item" href="<?php echo $base_path; ?>frontend/admin/management/product_sizes">Product Sizes</a></li>
             <li class="<?php echo ($currentPage == 'config.php') ? 'active' : ''; ?>"><a href="<?php echo $base_path; ?>frontend/admin/setting/config"><i class="fas fa-cogs me-2"></i>Settings</a></li>
         </ul>
     </nav>

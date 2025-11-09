@@ -22,6 +22,16 @@ include_once __DIR__ . '/../../include/header.php';
     <div class="col-lg-4 col-md-6 mb-4">
         <div class="card h-100">
             <div class="card-body">
+                <i class="fas fa-ruler-combined fa-3x mb-3 text-primary"></i>
+                <h5 class="card-title">Product Sizes Management</h5>
+                <p class="card-text">Manage product dimensions like height, width, etc.</p>
+                <a href="<?php echo $base_path; ?>frontend/admin/management/product_sizes" class="btn btn-outline-primary">Go to Sizes</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100">
+            <div class="card-body">
                 <i class="fas fa-user-shield fa-3x mb-3 text-primary"></i>
                 <h5 class="card-title">Role Management</h5>
                 <p class="card-text">Add, edit, and manage user roles and permissions.</p>
