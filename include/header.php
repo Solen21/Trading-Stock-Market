@@ -11,10 +11,7 @@ $system_font = isset($system_font) ? htmlspecialchars($system_font) : 'Poppins';
 $favicon = !empty($system_logo) ? '../../public/' . htmlspecialchars($system_logo) : '';
 ?>
 <?php
-// Define a dynamic base path to the project root.
-$doc_root = str_replace('\\', '/', $_SERVER['DOCUMENT_ROOT']);
-$project_path = str_replace($doc_root, '', str_replace('\\', '/', __DIR__ . '/..'));
-$base_path = $project_path . '/';
+$base_path = '/project/abiel/';
 ?>
 <!DOCTYPE html>
 <html lang="en">
