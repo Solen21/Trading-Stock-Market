@@ -62,8 +62,12 @@ CREATE TABLE IF NOT EXISTS stores (
 CREATE TABLE IF NOT EXISTS companies (
     id INTEGER PRIMARY KEY AUTO_INCREMENT,
     name TEXT NOT NULL,
-    code VARCHAR(255) NOT NULL UNIQUE,
-    contact_info TEXT,
+    contact_person VARCHAR(255),
+    country VARCHAR(100),
+    email VARCHAR(255),
+    phone VARCHAR(50),
+    address TEXT,
+    info TEXT,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -107,6 +111,7 @@ CREATE TABLE IF NOT EXISTS products (
     name VARCHAR(255) NOT NULL,
     category_id INT,
     supplier_id INT,
+    company_product_code VARCHAR(100),
     purchase_price DECIMAL(12,2) NOT NULL,
     transport_fee DECIMAL(12,2) DEFAULT 0,
     loading_fee DECIMAL(12,2) DEFAULT 0,
